@@ -7,5 +7,9 @@ async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
   app.useStaticAssets('public', { prefix: '/static' });
   await app.listen(3000);
+
+  setTimeout(() => {
+    app.close();
+  }, 2000);
 }
 bootstrap();
