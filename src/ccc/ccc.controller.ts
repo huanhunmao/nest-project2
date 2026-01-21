@@ -17,9 +17,7 @@ import { CreateCccDto } from './dto/create-ccc.dto';
 import { UpdateCccDto } from './dto/update-ccc.dto';
 
 @Controller('ccc')
-export class CccController
-  implements OnModuleDestroy, BeforeApplicationShutdown, OnApplicationShutdown
-{
+export class CccController {
   constructor(private readonly cccService: CccService) {}
 
   //   onModuleInit() {
@@ -29,17 +27,17 @@ export class CccController
   //     console.log('CccController onApplicationBootstrap');
   //   }
 
-  onModuleDestroy() {
-    console.log('CccController onModuleDestroy');
-  }
+  //   onModuleDestroy() {
+  //     console.log('CccController onModuleDestroy');
+  //   }
 
-  beforeApplicationShutdown() {
-    console.log('CccController beforeApplicationShutdown');
-  }
+  //   beforeApplicationShutdown() {
+  //     console.log('CccController beforeApplicationShutdown');
+  //   }
 
-  onApplicationShutdown() {
-    console.log('CccController onApplicationShutdown');
-  }
+  //   onApplicationShutdown() {
+  //     console.log('CccController onApplicationShutdown');
+  //   }
 
   @Post()
   create(@Body() createCccDto: CreateCccDto) {

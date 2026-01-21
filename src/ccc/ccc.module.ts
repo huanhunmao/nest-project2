@@ -13,22 +13,20 @@ import { CccController } from './ccc.controller';
   controllers: [CccController],
   providers: [CccService],
 })
-export class CccModule
-  implements OnModuleInit, OnApplicationBootstrap, OnApplicationShutdown
-{
+export class CccModule {
   constructor(private readonly moduleRef: ModuleRef) {}
 
-  onModuleInit() {
-    console.log('CccModule onModuleInit');
-  }
+  //   onModuleInit() {
+  //     console.log('CccModule onModuleInit');
+  //   }
 
-  onApplicationBootstrap() {
-    console.log('CccModule onApplicationBootstrap');
-  }
-  onApplicationShutdown() {
-    const cccService = this.moduleRef.get<CccService>(CccService);
-    console.log('--------------------------', cccService.findAll());
+  //   onApplicationBootstrap() {
+  //     console.log('CccModule onApplicationBootstrap');
+  //   }
+  //   onApplicationShutdown() {
+  //     const cccService = this.moduleRef.get<CccService>(CccService);
+  //     console.log('--------------------------', cccService.findAll());
 
-    console.log('CccModule onApplicationShutdown');
-  }
+  //     console.log('CccModule onApplicationShutdown');
+  //   }
 }

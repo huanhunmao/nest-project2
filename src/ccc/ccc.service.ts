@@ -7,13 +7,13 @@ import { CreateCccDto } from './dto/create-ccc.dto';
 import { UpdateCccDto } from './dto/update-ccc.dto';
 
 @Injectable()
-export class CccService implements OnModuleInit, OnApplicationBootstrap {
-  onApplicationBootstrap() {
-    console.log('CccService onApplicationBootstrap');
-  }
-  onModuleInit() {
-    console.log('CccService onModuleInit');
-  }
+export class CccService {
+  //   onApplicationBootstrap() {
+  //     console.log('CccService onApplicationBootstrap');
+  //   }
+  //   onModuleInit() {
+  //     console.log('CccService onModuleInit');
+  //   }
 
   create(createCccDto: CreateCccDto) {
     return 'This action adds a new ccc';
