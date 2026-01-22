@@ -7,6 +7,8 @@ import { LoginGuard } from './login.guard';
 import { TimeInterceptor } from './time.interceptor';
 import { ValidatePipe } from './validate.pipe';
 import { TestFilter } from './test.filter';
+import session from 'express-session';
+
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
   app.useStaticAssets('public', { prefix: '/static' });
@@ -21,6 +23,13 @@ async function bootstrap() {
   //   app.useGlobalInterceptors(new TimeInterceptor());
   // app.useGlobalPipes(new ValidatePipe())
   //   app.useGlobalFilters(new TestFilter());
+
+  app.use(
+    session({
+      secret: 'fuhao',
+      cookie: { maxAge: 60000 },
+    }),
+  );
   await app.listen(3000);
 
   setTimeout(() => {

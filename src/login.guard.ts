@@ -6,16 +6,26 @@ import {
 } from '@nestjs/common';
 import { Observable } from 'rxjs';
 import { AppService } from './app.service';
+import { Reflector } from '@nestjs/core';
 
 @Injectable()
 export class LoginGuard implements CanActivate {
-  @Inject(AppService)
-  private appService: AppService;
+  constructor(private readonly reflector: Reflector) {}
+  //   @Inject(AppService)
+  //   private appService: AppService;
+
+  //   @Inject(Reflector)
+  //   private readonly reflector: Reflector;
 
   canActivate(
     context: ExecutionContext,
   ): boolean | Promise<boolean> | Observable<boolean> {
-    console.log('login check', this.appService.getHello());
-    return false;
+    // console.log('login check', this.appService.getHello());
+
+    // const classMetaData = this.reflector.get('roles', context.getClass());
+    // const methodMetadata = this.reflector.get('roles', context.getHandler());
+    // console.log(classMetaData, methodMetadata);
+
+    return true;
   }
 }

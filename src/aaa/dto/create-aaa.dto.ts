@@ -1,1 +1,4 @@
-export class CreateAaaDto {}
+export class CreateAaaDto {
+  a: number;
+  b: number;
+}

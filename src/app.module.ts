@@ -12,6 +12,7 @@ import { LogMiddleware } from './log.middleware';
 import { LoginGuard } from './login.guard';
 import { TimeInterceptor } from './time.interceptor';
 import { ValidatePipe } from './validate.pipe';
+import { AaaController } from './aaa.controller';
 
 @Module({
   imports: [
@@ -22,7 +23,7 @@ import { ValidatePipe } from './validate.pipe';
     CccModule,
     DddModule,
   ],
-  controllers: [AppController],
+  controllers: [AppController, AaaController],
   providers: [
     AppService,
     ServiceAService,
@@ -38,6 +39,14 @@ import { ValidatePipe } from './validate.pipe';
     //   provide: 'APP_PIPE',
     //   useClass: ValidatePipe,
     // },
+    {
+      provide: 'FuHao',
+      useFactory() {
+        return {
+          name: 'FuHao',
+        };
+      },
+    },
   ],
 })
 export class AppModule implements NestModule {

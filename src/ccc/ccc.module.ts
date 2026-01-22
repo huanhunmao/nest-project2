@@ -4,11 +4,13 @@ import {
   OnApplicationBootstrap,
   OnModuleInit,
   OnApplicationShutdown,
+  Global,
 } from '@nestjs/common';
 import { ModuleRef } from '@nestjs/core';
 import { CccService } from './ccc.service';
 import { CccController } from './ccc.controller';
 
+// @Global()
 @Module({
   controllers: [CccController],
   providers: [CccService],
