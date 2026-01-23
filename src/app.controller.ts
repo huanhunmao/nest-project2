@@ -26,10 +26,15 @@ import { ValidatePipe } from './validate.pipe';
 import { TestFilter } from './test.filter';
 import { Test } from '@nestjs/testing';
 import { CreateAaaDto } from './aaa/dto/create-aaa.dto';
+import { Eee } from './eee.decorator';
+import { Fff } from './fff.decorator';
+import { MyQuery } from './query.decorator';
+import { Ppp } from './ppp.decorator';
 
+// @Ppp()
 @Controller()
+// @SetMetadata('roles', ['user'])
 @UseGuards(LoginGuard)
-@SetMetadata('roles', ['user'])
 
 // @UseFilters(TestFilter)
 // @UsePipes(ValidatePipe)
@@ -49,7 +54,8 @@ export class AppController {
   //   @UseGuards(LoginGuard)
   //   @UseInterceptors(TimeInterceptor)
   //   @UsePipes(ValidatePipe)
-  @SetMetadata('roles', ['admin'])
+  //   @SetMetadata('roles', ['admin'])
+  @Eee('admin')
   getHello(): string {
     // console.log('FuHao:', this.fuHao);
     // throw new BadRequestException('AppController getHello error');
@@ -115,5 +121,16 @@ export class AppController {
   @Get('/session')
   session(@Session() session) {
     console.log(session);
+  }
+
+  @Get('hello4')
+  getFff(@Fff() f): string {
+    return f;
+  }
+
+  @Get('hello5')
+  getMyQuery(@MyQuery('a') a, @MyQuery('b') b) {
+    console.log('a', a);
+    console.log('b', b);
   }
 }

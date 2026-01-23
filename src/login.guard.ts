@@ -22,9 +22,11 @@ export class LoginGuard implements CanActivate {
   ): boolean | Promise<boolean> | Observable<boolean> {
     // console.log('login check', this.appService.getHello());
 
-    // const classMetaData = this.reflector.get('roles', context.getClass());
-    // const methodMetadata = this.reflector.get('roles', context.getHandler());
-    // console.log(classMetaData, methodMetadata);
+    // const eee = this.reflector.getAllAndOverride<string[]>('eee', [
+    //   context.getHandler(),
+    //   context.getClass(),
+    // ]);
+    // console.log('eee:', eee);
 
     return true;
   }
